@@ -437,7 +437,7 @@ BOOST_AUTO_TEST_CASE(segstream_insert_past_parent_eof)
 
 	auto sub = std::make_unique<stream::sub>(
 		this->seg, 15, 10,
-		std::bind(substreamTruncate,
+		std::bind<void>(substreamTruncate,
 			std::placeholders::_1, std::placeholders::_2,
 			std::weak_ptr<stream::seg>(this->seg)
 		)
