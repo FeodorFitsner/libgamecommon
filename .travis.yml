@@ -3,7 +3,7 @@ sudo: false
 language: cpp
 
 os:
-  - linux
+#  - linux
   - osx
 
 compiler:
@@ -22,8 +22,9 @@ addons:
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew unlink boost; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wget 'https://github.com/Malvineous/boost-cxx11-brew/releases/download/untagged-164ee4f523a92b12f526/boost-1.60.0_2.mavericks.bottle.tar.gz'; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install *.bottle.tar.gz; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install --verbose boost --c++11; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wget 'https://github.com/Malvineous/boost-cxx11-brew/releases/download/untagged-164ee4f523a92b12f526/boost-1.60.0_2.mavericks.bottle.tar.gz'; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install *.bottle.tar.gz; fi
 
 install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
