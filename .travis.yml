@@ -33,3 +33,6 @@ before_script:
 
 script:
   - ./configure && make && make V=1 check
+
+after_failure:
+  - if [ -f tests/tests.log ]; then cat tests/tests.log; fi
