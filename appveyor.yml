@@ -1,4 +1,7 @@
-#image: test
+image: test
+
+init:
+- appveyor version
 
 install:
 - '"%VS140COMNTOOLS%\VsMSBuildCmd.bat" && ^'
