@@ -1,4 +1,4 @@
-image: test
+#image: test
 
 install:
 - '"%VS140COMNTOOLS%\VsMSBuildCmd.bat" && ^'
