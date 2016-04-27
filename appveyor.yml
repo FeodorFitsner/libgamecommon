@@ -4,6 +4,7 @@ init:
 - appveyor version
 
 install:
+- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 - '"%VS140COMNTOOLS%\VsMSBuildCmd.bat" && ^'
 - appveyor-retry nuget restore win32\libgamecommon.sln && ^
 
