@@ -1,0 +1,14 @@
+image: test
+
+install:
+- '"%VS140COMNTOOLS%\VsMSBuildCmd.bat" && ^'
+- appveyor-retry nuget restore win32\libgamecommon.sln && ^
+
+build_script:
+- msbuild win32\libgamecommon\libgamecommon.vcxproj /t:Rebuild /p:Configuration=Debug /p:Platform=x86 /v:minimal /nologo && ^
+- msbuild win32\libgamecommon\libgamecommon.vcxproj /t:Rebuild /p:Configuration=Release /p:Platform=x86 /v:minimal /nologo && ^
+- msbuild win32\libgamecommon\libgamecommon.vcxproj /t:Rebuild /p:Configuration=Debug /p:Platform=x64 /v:minimal /nologo && ^
+- msbuild win32\libgamecommon\libgamecommon.vcxproj /t:Rebuild /p:Configuration=Release /p:Platform=x64 /v:minimal /nologo && ^
+- msbuild win32\libgamecommon-tests\libgamecommon-tests.vcxproj /t:Rebuild /p:Configuration=Debug /p:Platform=x86 /v:minimal /nologo && ^
+
+test: off
