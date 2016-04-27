@@ -1,6 +1,9 @@
 #image: Visual Studio 2015 - GCE
 image: test
 
+environment:
+  APPVEYOR_BUILD_AGENT_CREATE_NO_WINDOW: true
+
 init:
 - appveyor version
 
